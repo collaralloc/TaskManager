@@ -10,15 +10,14 @@
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  用VS打卡sln文件
+2.  右键项目属性，配置成2017v141,sdk 10.0
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  Task Manager.cpp是主程序
+2.  PCB类，是进程控制块
+3.  
 
 #### 参与贡献
 
