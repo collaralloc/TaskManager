@@ -1,1 +1,6 @@
-#include<list>
+#include "stdafx.h"
+
+
+int func() {
+	return rand();
+}

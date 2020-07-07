@@ -30,6 +30,9 @@
     <ClInclude Include="PCB.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="TaskPrio.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -41,7 +44,7 @@
     <ClCompile Include="PCB.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="PriorityTask.cpp">
+    <ClCompile Include="TaskPrio.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

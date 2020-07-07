@@ -4,7 +4,7 @@
 #include "stdafx.h"
 #include "TaskManager.h"
 #include <cstdio>
-#include "PCB.h"
+#include "TaskPrio.h"
 
 #define MAX_LOADSTRING 100
 // 全局变量:
@@ -39,6 +39,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	wprintf(L"UNICODE 开始消息循环!\n");
 	PCB pcb;
 	pcb.show();
+	TaskPrio task;
+	task.myTask();
 
 	
 
@@ -141,6 +143,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
+	case WM_KEYDOWN: //键盘按下
+		MessageBox(hWnd, TEXT("键盘按下"), TEXT("键盘"), MB_OK);
     case WM_COMMAND:
         {
             int wmId = LOWORD(wParam);
@@ -163,6 +167,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: 在此处添加使用 hdc 的任何绘图代码...
+			TextOut(hdc, 100, 100, TEXT("初始文本"), 8);
+
             EndPaint(hWnd, &ps);
         }
         break;
