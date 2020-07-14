@@ -5,17 +5,22 @@
 PCB::PCB()
 {
 	puts("make new PCB class");
+	cpu_time = 0;
+	arrive = 0;
+	status = 0;
+	next = NULL;
 }
 
 
 PCB::~PCB()
 {
 	PCB* p;
-	while (next != NULL) {
+	while (next != NULL && next != 0) {
 		p = next;
 		next = next->next;
 		delete p;
 	}
+	puts("delete PCB class");
 }
 
 void PCB::show()
@@ -30,12 +35,10 @@ Plist::Plist() {
 PCB* Plist::create() {
 	PCB *p = new PCB();
 	p->pid = ++pc;
-	p->prio = rand()%100;
-	p->round = rand();
-	p->need_time = rand()%10;
-	p->cpu_time = 0;
-	p->status = 0;
-	p->next = NULL;
+	p->prio = rand() % 100;
+	p->round = rand() % 100;
+	p->need_time = rand() % 10;
+
 	return p;
 }
 void Plist::insertP(PCB* p) {
@@ -58,7 +61,14 @@ void Plist::insertP(PCB* p) {
 }
 
 void Plist::insertR(PCB* p) {
-
+	length++;
+	if (pcb == NULL) {
+		pcb = p;
+		tail = p;
+		return;
+	}
+	tail->next = p;
+	tail = p;
 }
 
 PCB* Plist::firstin() {
@@ -73,4 +83,7 @@ PCB* Plist::getHead() {
 }
 bool Plist::empty() {
 	return (length==0);
+}
+int Plist::size() {
+	return length;
 }
